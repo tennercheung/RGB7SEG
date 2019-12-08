@@ -81,10 +81,9 @@ void display_num(int v, int red_, int green_, int blue_) {
     }
 
     else if (arr[p] == 1) {
-      Serial.println(p);
       //Display 1
       for (int i = 1 + p * 7; i <= 2 + p * 7; ++i) {
-        pixels.setPixelColor(i + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
+        pixels.setPixelColor(i, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
       }
       pixels.show(); // This sends the updated pixel color to the hardware.
     }
@@ -101,7 +100,7 @@ void display_num(int v, int red_, int green_, int blue_) {
     else if (arr[p] == 3) {
       //Display 3
       for (int i = 0 + p * 7; i <= 3 + p * 7; ++i) {
-        pixels.setPixelColor(i + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
+        pixels.setPixelColor(i, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
       }
       pixels.setPixelColor(6 + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
       pixels.show(); // This sends the updated pixel color to the hardware.
@@ -127,21 +126,21 @@ void display_num(int v, int red_, int green_, int blue_) {
       //Display 6
       pixels.setPixelColor(0 + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
       for (int i = 2 + p * 7; i < 7 + p * 7; ++i) {
-        pixels.setPixelColor(i + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
+        pixels.setPixelColor(i, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
       }
       pixels.show(); // This sends the updated pixel color to the hardware.
     }
     else if (arr[p] == 7) {
       //Display 7
       for (int i = 0 + p * 7; i <= 2 + p * 7; ++i) {
-        pixels.setPixelColor(i + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
+        pixels.setPixelColor(i, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
       }
       pixels.show(); // This sends the updated pixel color to the hardware.
     }
     else if (arr[p] == 8) {
       //Display 8
       for (int i = 0 + p * 7; i < 7 + p * 7; ++i) {
-        pixels.setPixelColor(i + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
+        pixels.setPixelColor(i, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
         pixels.show(); // This sends the updated pixel color to the hardware.
       }
     }
@@ -149,7 +148,7 @@ void display_num(int v, int red_, int green_, int blue_) {
 
       //Display 9
       for (int i = 0 + p * 7; i <= 3 + p * 7; ++i) {
-        pixels.setPixelColor(i + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
+        pixels.setPixelColor(i, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
       }
 
       pixels.setPixelColor(5 + p * 7, pixels.Color(red_, green_, blue_)); // Moderately bright green color.
@@ -168,8 +167,6 @@ void setup() {
 }
 
 void loop() {
-
-
-  display_num(11, 4, 20/5, 50/5);
+  display_num(10, 4, 20/5, 50/5);
 
 }
