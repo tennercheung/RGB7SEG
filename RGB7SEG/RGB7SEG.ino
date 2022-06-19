@@ -1,12 +1,11 @@
-
 #include <Adafruit_NeoPixel.h>
 
 // Which pin on the Arduino is connected to the NeoPixels?
-#define PIN  2
+#define PIN  6
 
-#define DISPLAYS  4
-#define NUMPIXELS  7
-#define BRIGHT 125 // brightness out of 255
+#define DISPLAYS  1 // number of RGB7SEG boards being used in series
+#define NUMPIXELS  7 // number of RGB LEDs per board
+#define BRIGHT 125 // brightness of LEDs out of 255
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(DISPLAYS*NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -25,7 +24,7 @@ void clear_displays () {
 }
 
 
-
+//display a number in the given RGB color code
 void display_num(int v, int red_, int green_, int blue_) {
 
   int ones;
@@ -172,13 +171,15 @@ void display_num(int v, int red_, int green_, int blue_) {
 void setup() {
   Serial.begin(9600);
   pixels.begin(); // This initializes the NeoPixel library.
-  clear_displays ();
+  clear_displays (); //clears all the LED boards
 }
 
 void loop() {
 
 
-  //  Count from 0 to 99
+  /*  Counts from 0 to 99 on two or more displays 
+  or from 0 to 9 on one display from red, green, and then blue */
+  
   for (int a = 0; a <= 99; ++a) {
     display_num(a, red, green, blue);
     if (red <= 255) {
